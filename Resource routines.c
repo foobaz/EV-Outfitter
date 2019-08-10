@@ -37,14 +37,14 @@ Boolean OpenResources( FSSpec* file )
 		return true;
 	}
 	UseResFile(gameRefNum);
-	pilotData = Get1Resource( 'Mp•L', 128 );
+	pilotData = Get1Resource( 'MpÃ¯L', 128 );
 	if( pilotData == nil )
 	{
 		DoError(kNotEVFile);
 		CloseResFile(gameRefNum);
 		return true;
 	}
-	shipData = Get1Resource( 'Mp•L', 129 );
+	shipData = Get1Resource( 'MpÃ¯L', 129 );
 	if( shipData == nil )
 	{
 		DoError(kNotEVFile);
@@ -82,7 +82,7 @@ Boolean SaveAs()
 		}
 	}
 	gameFile = &new.sfFile;
-	FSpCreateResFile( gameFile, 'M‘rc', 'Mp•L', 0L );
+	FSpCreateResFile( gameFile, 'MÃ«rc', 'MpÃ¯L', 0L );
 	gameRefNum = FSpOpenResFile( gameFile, fsRdWrPerm );
 	if( gameRefNum == -1 )
 	{
@@ -91,7 +91,7 @@ Boolean SaveAs()
 		return true;
 	}
 	
-	AddResource( pilotData, 'Mp•L', 128 ,"\pPilot Data" );
+	AddResource( pilotData, 'MpÃ¯L', 128 ,"\pPilot Data" );
 	if( ResError() )
 	{
 		DoError(kCantWrite);
@@ -100,7 +100,7 @@ Boolean SaveAs()
 	}
 	DetachResource(pilotData);
 
-	AddResource( shipData, 'Mp•L', 129 ,nameOfShip );
+	AddResource( shipData, 'MpÃ¯L', 129 ,nameOfShip );
 	if( ResError() )
 	{
 		DoError(kCantWrite);
@@ -133,7 +133,7 @@ Boolean Save( FSSpec* gameFile )
 		return true;
 	}
 	
-	oldPilot = Get1Resource( 'Mp•L', 128 );
+	oldPilot = Get1Resource( 'MpÃ¯L', 128 );
 	if( oldPilot == nil )
 	{
 		DoError(kNotEVFile);
@@ -160,7 +160,7 @@ void OpenGame()
 	StandardFileReply reply;
 	
 	HiliteMenu(0);
-	type[0] = 'Mp•L';
+	type[0] = 'MpÃ¯L';
 	StandardGetFile( nil, 1, type, &reply );
 	if( !reply.sfGood )
 		return;
@@ -176,7 +176,7 @@ void Violate()
 	ResType rType;
 	Str255 rName;
 
-	type[0] = 'MDŠt';
+	type[0] = 'MDÃ¤t';
 	StandardGetFile( nil, 1, type, &reply );
 	dataRefNum = FSpOpenResFile( &reply.sfFile, fsRdWrPerm );
 	if( !reply.sfGood )
@@ -186,7 +186,7 @@ void Violate()
 		DoError(kEVOpen);
 		return;
 	}
-	forklift = Get1Resource( 'w‘ap', 191 );
+	forklift = Get1Resource( 'wÃ«ap', 191 );
 	if( forklift == nil )
 	{
 		DoError(kPreMessed);

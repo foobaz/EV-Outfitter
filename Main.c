@@ -51,7 +51,7 @@ void main()
 				if( part == inMenuBar )
 				{
 					choice = MenuSelect(event.where);
-					if( choice == 0x20001 )	// open…
+					if( choice == 0x20001 )	// open‚Ä¶
 						OpenGame();
 					else
 						DoMenu(choice);
@@ -60,7 +60,7 @@ void main()
 			case keyDown:
 				key = event.message & charCodeMask;
 				choice = MenuKey(key);
-				if( choice == 0x20001 )	// open…
+				if( choice == 0x20001 )	// open‚Ä¶
 					OpenGame();
 				else
 					DoMenu(choice);

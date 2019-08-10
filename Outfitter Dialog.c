@@ -44,7 +44,7 @@ void Edit( FSSpec* gameFile )
 	Handle pageCtl, iText;
 	short newPage, iHit;
 	
-			/* read in file’s resources */
+			/* read in file‚Äôs resources */
 	if( OpenResources(gameFile) )
 		return;
 	
@@ -71,7 +71,7 @@ void Edit( FSSpec* gameFile )
 	dialUp = true;
 	page = 197;
 	
-		/* Carry out the user’s every desire until he saves or cancels */
+		/* Carry out the user‚Äôs every desire until he saves or cancels */
 	do
 	{
 		iHit = 0;
@@ -216,10 +216,10 @@ confirm:
 		iHit = CautionAlert( 130, nil );
 		switch( iHit )
 		{
-			case 1:	// Save As…
+			case 1:	// Save As‚Ä¶
 				dialUp = SaveAs();
 				break;
-			case 2:	// Don’t save
+			case 2:	// Don‚Äôt save
 				dialUp = false;
 				break;
 			case 3:	// Save
@@ -363,9 +363,9 @@ void SavePage()
 		howMany = GetCtlValue( (ControlHandle) textItem );
 		if( howMany == 28 )
 			howMany = 64;
-		else if( howMany == 27 )	// after calculations, howMany is 0 to bypass the…
-			howMany = 4661;	// …write-to-file. I didn’t create ship and won’t mess with it.
-		howMany += 127;	// get ship resource ID form menu item…
+		else if( howMany == 27 )	// after calculations, howMany is 0 to bypass the‚Ä¶
+			howMany = 4661;	// ‚Ä¶write-to-file. I didn‚Äôt create ship and won‚Äôt mess with it.
+		howMany += 127;	// get ship resource ID form menu item‚Ä¶
 		howMany ^= 0x12B4;	// and xor with magical ship code
 		if(howMany)	// the bypass mechanism
 			((short*)(*pilotData))[1] = howMany;
@@ -545,20 +545,20 @@ void DoMenu( long choice )
 	{
 		case 0:
 			return;
-		case 0x10001:	// about…
+		case 0x10001:	// about‚Ä¶
 about:
 			if( NoteAlert( 131, nil ) == 3 )
 				goto help;
 			break;
-		case 0x10002:	// help…
+		case 0x10002:	// help‚Ä¶
 help:
 			if( NoteAlert( 132, nil ) == 3 )
 				goto about;
 			break;
-		case 0x20002:	// cancel…
+		case 0x20002:	// cancel‚Ä¶
 			dialUp = false;
 			break;
-		case 0x20004:	// save as…
+		case 0x20004:	// save as‚Ä¶
 			dialUp = SaveAs();
 			break;
 		case 0x20005:	// revert page
